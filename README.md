@@ -1,6 +1,6 @@
 # Festorg site project
 ## Details
-To run the server use `npm run dev` in the project folder. And go to `http://localhost:5173`
+To run the server use `npm run dev` in the project folder and go to `http://localhost:5173`
 
 All the code is stored in the `src` folder.
 
