@@ -11,6 +11,7 @@ import {RegisterForm} from './elements/registration-form';
 import { AdminOrganizerPage } from './pages/admin-organizer';
 import { AdminUsersPage } from './pages/admin-user';
 import { AdminPage } from './pages/admin-page';
+import { Error } from './pages/error-page';
 
 import {
   BrowserRouter as Router,
@@ -64,6 +65,7 @@ function App() {
           <Route path='/admin/org' element={<AdminOrganizerPage />} />
           <Route path='/admin/usr' element={<AdminUsersPage />} />
           <Route path='admin' element={<AdminPage/>}/>
+          <Route path='*' element={<Error/>}/>
         </Routes>
       </main>
       <Footer />
