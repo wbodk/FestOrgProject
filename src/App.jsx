@@ -59,8 +59,8 @@ function App() {
       <main className='flex items-center justify-center'>
         <Routes>
           <Route path='/' element={<MainPage />} />
-          <Route path='/orgs/1' element={<OrganizerPage />} />
-          <Route path='/fests/1' element={<FestivalPage />} />
+          <Route path='/orgs/:key' element={<OrganizerPage />} />
+          <Route path='/fests/:keyB/:keyC' element={<FestivalPage />} />
           <Route path='/fests' element={<FestivalsPage />} />
           <Route path='/admin/org' element={<AdminOrganizerPage />} />
           <Route path='/admin/usr' element={<AdminUsersPage />} />
