@@ -28,7 +28,10 @@ export function FestivalsPage() {
                         <Link to={`/fests/${keyB}/${keyC}`} key={keyC}>
                             <div className="bg-white rounded-lg shadow-md p-4">
                                 <h2 className="text-xl font-semibold mb-2">{itemC.naziv}</h2>
-                                <img src={itemC.image || "template.jpg"} alt={`Festival photo ${itemC.naziv}`} className="w-full h-auto mb-4" />
+                                <img src={itemC.slike[0] || "template.jpg"} alt={`Festival photo ${itemC.naziv}`} className="w-full h-40 object-cover rounded-t-lg" />
+                                <p className="text-gray-600 mt-4">
+                                    {itemC.opis || "No description available"}
+                                </p>
                             </div>
                         </Link>
                     ))
