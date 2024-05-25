@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 export function OrganizerPage() {
     const { key } = useParams();
+    const [festsKey, setFestsKey] = useState();
     const [organizer, setOrganizer] = useState(null);
     const [festivals, setFestivals] = useState(null);
 
@@ -16,6 +17,7 @@ export function OrganizerPage() {
                 const responseFests = await fetch(`https://festorgproject-default-rtdb.firebaseio.com/festivali/${data.festivali}.json`)
                 const dataFests = await responseFests.json();
                 setFestivals(dataFests);
+                setFestsKey(data.festivali);
                 
             } catch (error) {
                 console.error("Failed to fetch organizer:", error);
@@ -42,7 +44,7 @@ export function OrganizerPage() {
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {festivals && Object.entries(festivals).map(([key, item]) => (
-                            <Link to={`/festival/${key}`} key={key}>
+                            <Link to={`/fests/${festsKey}/${key}`}>
                                 <div className="bg-white rounded-lg shadow-md p-4">
                                     <h3 className="text-xl font-semibold mb-2">{item.naziv}</h3>
                                     <p className="text-gray-600">
