@@ -39,7 +39,17 @@ export function FestivalPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div className="bg-white rounded-lg shadow-md p-8">
                 <h2 className="text-2xl font-semibold mb-4">{festival.naziv}</h2>
-                <img src={festival.image || "template.jpg"} alt={`Festival photo ${festival.naziv}`} className="w-full h-auto mb-4" />
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                    {festival.slike.map((imageUrl, index) => (
+                        <img
+                            key={index}
+                            src={imageUrl}
+                            alt={`Festival photo ${festival.naziv}`}
+                            className="w-full h-auto rounded-md shadow-md object-cover"
+                            style={{ aspectRatio: "1/1" }}
+                        />
+                    ))}
+                </div>
                 <p className="text-gray-600 mb-4">
                     {festival.opis || "No description available"}
                 </p>

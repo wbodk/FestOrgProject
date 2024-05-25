@@ -40,7 +40,7 @@ export function AdminUsersPage() {
     if (user.id) {
       // Update existing user
       try {
-        await fetch(`https://festorgproject-default-rtdb.firebaseio.com/${user.id}.json`, {
+        await fetch(`https://festorgproject-default-rtdb.firebaseio.com/korisnici/${user.id}.json`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'

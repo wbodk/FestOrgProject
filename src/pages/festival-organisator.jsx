@@ -35,7 +35,13 @@ export function OrganizerPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div className="bg-white rounded-lg shadow-md p-8">
                 <h2 className="text-2xl font-semibold mb-4">{organizer.naziv}</h2>
-                <img src={organizer.logo} alt="Organizer photo" className="w-full h-auto mb-4" />
+                <img 
+                    src={organizer.logo} 
+                    alt="Organizer photo" 
+                    className="w-full h-64 object-cover rounded-md mb-4" // Adjust height as needed
+                    style={{ aspectRatio: '16 / 9' }} // Maintain aspect ratio
+                />
+
                 <p className="text-gray-600">
                     <strong>Address:</strong> {organizer.adresa}<br />
                     <strong>Year of Foundation:</strong> {organizer.godinaOsnivanja}<br />
@@ -43,22 +49,20 @@ export function OrganizerPage() {
                     <strong>Email:</strong> {organizer.email}<br />
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {festivals && Object.entries(festivals).map(([key, item]) => (
-                            <Link to={`/fests/${festsKey}/${key}`}>
-                                <div className="bg-white rounded-lg shadow-md p-4">
-                                    <h3 className="text-xl font-semibold mb-2">{item.naziv}</h3>
-                                    <p className="text-gray-600">
-                                        Type: {item.tip}<br />
-                                        Ticket price: {item.cena}<br />
-                                        Max Capacity: {item.maxOsoba}<br />
-                                    </p>
-                                </div>
-                            </Link>
-                        ))
-                        }
+                    {festivals && Object.entries(festivals).map(([key, item]) => (
+                        <Link to={`/fests/${festsKey}/${key}`}>
+                            <div className="bg-white rounded-lg shadow-md p-4">
+                                <h3 className="text-xl font-semibold mb-2">{item.naziv}</h3>
+                                <p className="text-gray-600">
+                                    Type: {item.tip}<br />
+                                    Ticket price: {item.cena}<br />
+                                    Max Capacity: {item.maxOsoba}<br />
+                                </p>
+                            </div>
+                        </Link>
+                    ))}
                 </div>
             </div>
         </div>
     );
 }
-

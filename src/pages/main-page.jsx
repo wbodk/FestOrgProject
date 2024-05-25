@@ -31,7 +31,7 @@ export function MainPage() {
                                 <div className="bg-white rounded-lg shadow-md p-4">
                                     <h2 className="text-xl font-semibold mb-2">{item.naziv}</h2>
                                     <p className="text-gray-600 mb-4">Contact Information: {item.email}</p>
-                                    <img src={item.logo} alt="Photo of Organizer" className="w-full h-auto mb-4" />
+                                    <img src={item.logo} alt="Photo of Organizer" className="w-full h-auto mb-4 object-cover rounded-lg" style={{ aspectRatio: "16/9" }} />
                                 </div>
                             </Link>
                         )

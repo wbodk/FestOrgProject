@@ -72,17 +72,24 @@ export const AdminOrganizerPage = () => {
     }
   };
 
-  const handleDeleteOrganizer = async (id) => {
-    try {
+// Внесем некоторые изменения в функцию handleDeleteOrganizer
+
+const handleDeleteOrganizer = async (id) => {
+  const confirmDelete = window.confirm("Are you sure you want to delete this organizer?");
+  if (!confirmDelete) {
+      return;
+  }
+  try {
       await fetch(`${FIREBASE_URL}organizatoriFestivala/${id}.json`, {
-        method: 'DELETE',
+          method: 'DELETE',
       });
       setOrganizers(organizers.filter(org => org.id !== id));
       setMessage("Organizer deleted successfully");
-    } catch (error) {
+  } catch (error) {
       console.error("Failed to delete organizer:", error);
-    }
-  };
+  }
+};
+
 
   const handleEditOrganizer = (organizer) => {
     setSelectedOrganizer(organizer);
